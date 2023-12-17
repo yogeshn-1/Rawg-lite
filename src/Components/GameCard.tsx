@@ -13,7 +13,7 @@ const GameCard = ({ game }: Prop) => {
     <Card
       borderRadius="5px"
       overflow="hidden"
-      width={{ sm: "80%", md: "100%", lg: "100%" }}
+      width={{ base: "70%", md: "100%" }}
       mx="auto"
       height="fit-content"
     >

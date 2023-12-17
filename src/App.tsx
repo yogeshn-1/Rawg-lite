@@ -5,7 +5,7 @@ import GenreList from "./Components/GenreList";
 function App() {
   return (
     <div>
-      <Box maxW="1024px" mx={"auto"} my={2}>
+      <Box maxW="1200px" mx="auto" my={2}>
         <Grid
           templateAreas={{
             base: `"nav" "main"`,
@@ -16,7 +16,7 @@ function App() {
             <Navbar />
           </GridItem>
           <Show above="md">
-            <GridItem area="aside">
+            <GridItem area="aside" px="10px" my="10px">
               <GenreList></GenreList>
             </GridItem>
           </Show>
