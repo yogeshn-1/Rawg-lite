@@ -9,6 +9,7 @@ const GameCardSekeleton = () => {
       mx="auto"
       height="300px"
       gap="5px"
+      my="5px"
     >
       <CardBody height="80%">
         <Skeleton></Skeleton>

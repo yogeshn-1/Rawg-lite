@@ -11,21 +11,23 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Prop) => {
   else
     return (
       <List>
-        {data.map((g) => (
-          <ListItem key={g.id} paddingY="5px">
+        {data.map((genreList) => (
+          <ListItem key={genreList.id} paddingY="5px">
             <HStack alignItems="center">
               <Image
-                src={getCroppedImage(g.image_background)}
+                src={getCroppedImage(genreList.image_background)}
                 width="35px"
                 height="30px"
                 borderRadius="5px"
               ></Image>
               <Link
-                fontWeight={g.id == selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={
+                  genreList.id == selectedGenre?.id ? "bold" : "normal"
+                }
                 fontSize="lg"
-                onClick={() => onSelectGenre(g)}
+                onClick={() => onSelectGenre(genreList)}
               >
-                {g.name}
+                {genreList.name}
               </Link>
             </HStack>
           </ListItem>

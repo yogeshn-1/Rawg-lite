@@ -1,14 +1,15 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
-import useGames from "../hooks/useGames";
+import useGames, { Platform } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSekeleton from "./GameCardSekeleton";
 import { Genre } from "../hooks/useGenre";
 interface Prop {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-const Gamegrid = ({ selectedGenre }: Prop) => {
-  const { data, error, isLoading } = useGames(selectedGenre);
+const Gamegrid = ({ selectedGenre, selectedPlatform }: Prop) => {
+  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
   const columns = { sm: 1, md: 2, lg: 3 };
   const skeletons = [0];
   //todo Use an array of selected length to match card in game
