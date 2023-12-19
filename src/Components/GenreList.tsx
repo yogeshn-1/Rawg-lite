@@ -3,8 +3,9 @@ import useGenre, { Genre } from "../hooks/useGenre";
 import getCroppedImage from "../services/get-croppedImage";
 interface Prop {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenreList = ({ onSelectGenre }: Prop) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Prop) => {
   const { data, isLoading } = useGenre();
   if (isLoading) return <Spinner />;
   else
@@ -19,7 +20,11 @@ const GenreList = ({ onSelectGenre }: Prop) => {
                 height="30px"
                 borderRadius="5px"
               ></Image>
-              <Link fontSize="lg" onClick={() => onSelectGenre(g)}>
+              <Link
+                fontWeight={g.id == selectedGenre?.id ? "bold" : "normal"}
+                fontSize="lg"
+                onClick={() => onSelectGenre(g)}
+              >
                 {g.name}
               </Link>
             </HStack>

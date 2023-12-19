@@ -10,7 +10,11 @@ interface Prop {
 const Gamegrid = ({ selectedGenre }: Prop) => {
   const { data, error, isLoading } = useGames(selectedGenre);
   const columns = { sm: 1, md: 2, lg: 3 };
-  const skeletons = [1, 2, 3, 4, 5, 6];
+  const skeletons = [0];
+  //todo Use an array of selected length to match card in game
+  for (let i = 0; i < 20; i++) {
+    skeletons.push(i);
+  }
   return (
     <>
       {error && <p>{error}</p>}
