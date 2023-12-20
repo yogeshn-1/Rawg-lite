@@ -15,7 +15,7 @@ const GameCard = ({ game }: Prop) => {
       overflow="hidden"
       width={{ base: "70%", md: "100%" }}
       mx="auto"
-      my="5px"
+      // my="5px"
       // height="fit-content"
     >
       <Image src={getCroppedImage(game.background_image)} />
