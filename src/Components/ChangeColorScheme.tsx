@@ -7,6 +7,7 @@ const ColorSwitch = () => {
       isChecked={colorMode === "dark"}
       onChange={toggleColorMode}
       colorScheme="blue"
+      whiteSpace="nowrap"
     >
       Dark mode
     </Switch>
