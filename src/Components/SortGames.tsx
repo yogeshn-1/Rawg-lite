@@ -8,7 +8,7 @@ interface Prop {
 const SortGames = ({ onSortOrderSelect, selectedOrder }: Prop) => {
   const sortOrder = [
     { value: "name", label: "Name" },
-    { value: "-added", label: "Date added" },
+    { value: "added", label: "Date added" },
     { value: "-metacritic", label: "Popularity" },
     { value: "-rating", label: "Average Rating" },
     { value: "-released", label: "Release date" },
