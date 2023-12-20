@@ -14,10 +14,9 @@ export interface GameQuery {
 }
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  // const setGenre = () => {};
   return (
     <div>
-      <Box maxW="1200px" mx="auto" my={2}>
+      <Box mx="auto" my={2}>
         <Grid
           templateAreas={{
             base: `"nav" "main"`,
@@ -35,7 +34,7 @@ function App() {
               ></GenreList>
             </GridItem>
           </Show>
-          <GridItem area="main" py="10px">
+          <GridItem area="main" padding="10px">
             <HStack spacing={5} marginBottom={5}>
               <PlatformSelector
                 platform={gameQuery.platform}

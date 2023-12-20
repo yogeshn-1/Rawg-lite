@@ -12,7 +12,7 @@ const Gamegrid = ({ gameQuery }: Prop) => {
   const columns = { sm: 1, md: 2, lg: 3 };
   const skeletons = [0];
   //todo Use an array of selected length to match card in game
-  for (let i = 0; i < 20; i++) {
+  for (let i = 1; i < 20; i++) {
     skeletons.push(i);
   }
   return (
@@ -21,7 +21,7 @@ const Gamegrid = ({ gameQuery }: Prop) => {
 
       {/* OLD CODE WITH UNEVEN SPACING */}
 
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={5}>
+      <SimpleGrid columns={[1, 1, 2, 3, 4]} spacing={5}>
         {isLoading && skeletons.map((skel) => <GameCardSekeleton key={skel} />)}
         {data.map((g) => (
           <GameCard key={g.id} game={g} />
@@ -30,8 +30,8 @@ const Gamegrid = ({ gameQuery }: Prop) => {
 
       <Box h="50px" background="grey" m="10px"></Box>
 
+      {/*Todo dynamically map colmns based on screen size */}
       <SimpleGrid columns={columns} spacing={5}>
-        {/*Todo dynamically map colmns based on screen size */}
         {[...Array(columns.lg)].map((_, colIndex) => (
           <SimpleGrid key={colIndex} columns={1} spacing={3}>
             {isLoading &&
