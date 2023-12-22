@@ -9,7 +9,7 @@ interface Prop {
 
 const Gamegrid = ({ gameQuery }: Prop) => {
   const { data, error, isLoading } = useGames(gameQuery);
-  const columns = { sm: 1, md: 2, lg: 3 };
+  const columns = { sm: 1, md: 2, lg: 3, xl: 4 };
   const skeletons = [0];
   //todo Use an array of selected length to match card in game
   for (let i = 1; i < 20; i++) {
@@ -32,13 +32,13 @@ const Gamegrid = ({ gameQuery }: Prop) => {
 
       {/*Todo dynamically map colmns based on screen size */}
       <SimpleGrid columns={columns} spacing={5}>
-        {[...Array(columns.lg)].map((_, colIndex) => (
+        {[...Array(columns.xl)].map((_, colIndex) => (
           <SimpleGrid key={colIndex} columns={1} spacing={3}>
             {isLoading &&
               skeletons.map((skel) => <GameCardSekeleton key={skel} />)}
 
             {data
-              .filter((_, index) => index % columns.lg === colIndex)
+              .filter((_, index) => index % columns.xl === colIndex)
               .map((game) => (
                 <GameCard key={game.id} game={game} />
               ))}
