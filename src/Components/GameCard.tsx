@@ -3,6 +3,7 @@ import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "../services/get-croppedImage";
+import Emojis from "./Emojis";
 
 interface Prop {
   game: Game;
@@ -17,6 +18,8 @@ const GameCard = ({ game }: Prop) => {
       mx="auto"
       // my="5px"
       // height="fit-content"
+      transition="transform 0.3s"
+      _hover={{ transform: "scale(1.10)" }}
     >
       <Image src={getCroppedImage(game.background_image)} />
       <CardBody>
@@ -29,6 +32,7 @@ const GameCard = ({ game }: Prop) => {
         <Text fontSize={26} fontWeight="bold">
           {game.name}
         </Text>
+        <Emojis rating={game.rating_top} rating_count={game.ratings_count} />
       </CardBody>
     </Card>
   );
