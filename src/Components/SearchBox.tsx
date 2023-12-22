@@ -19,9 +19,10 @@ const SearchBox = ({ onSearch }: Prop) => {
         <Input
           ref={reference}
           placeholder="Search games ...."
-          mx="5px"
+          mx="2px"
           variant="filled"
           borderRadius="15px"
+          fontSize={{ base: "small", sm: "large", md: "larger" }}
         ></Input>
       </InputGroup>
     </form>
