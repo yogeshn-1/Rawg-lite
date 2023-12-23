@@ -18,8 +18,9 @@ const GameCard = ({ game }: Prop) => {
       mx="auto" //for single column the card shoud be in middle.
       height="fit-content"
       transition="transform 0.3s"
-      _hover={{ transform: "scale(1.10)" }}
-      // my="auto"
+      _hover={{ transform: "scale(1.05)" }}
+      marginBottom="15px"
+      boxShadow="2xl"
     >
       <Image src={getCroppedImage(game.background_image)} />
       <CardBody>

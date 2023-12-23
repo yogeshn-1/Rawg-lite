@@ -8,6 +8,7 @@ import PlatformSelector from "./Components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortGames from "./Components/SortGames";
 import GameHeading from "./Components/GameHeading";
+import ClearFilter from "./Components/ClearFilter";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
@@ -16,6 +17,7 @@ export interface GameQuery {
 }
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [btnClear, setBtn] = useState(true);
   return (
     <div>
       <Box mx="auto" my={2}>
@@ -24,19 +26,28 @@ function App() {
             base: `"nav" "main"`,
             md: `"nav nav" "aside main"`,
           }}
+          templateRows={"80px 1fr"}
+          templateColumns={{
+            sm: "unset",
+            md: "200px 1fr",
+          }}
         >
           <GridItem area="nav">
             <Navbar
-              onSearch={(searchText) =>
-                setGameQuery({ ...gameQuery, searchText })
-              }
+              onSearch={(searchText) => {
+                setGameQuery({ ...gameQuery, searchText });
+                setBtn(false);
+              }}
             />
           </GridItem>
           <Show above="md">
             <GridItem area="aside" px="10px" my="10px">
               <GenreList
                 selectedGenre={gameQuery.genre}
-                onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+                onSelectGenre={(genre) => {
+                  setGameQuery({ ...gameQuery, genre });
+                  setBtn(false);
+                }}
               ></GenreList>
             </GridItem>
           </Show>
@@ -46,16 +57,27 @@ function App() {
               <HStack spacing={5} marginBottom={5}>
                 <PlatformSelector
                   platform={gameQuery.platform}
-                  onSelectPlatform={(platform) =>
-                    setGameQuery({ ...gameQuery, platform })
-                  }
+                  onSelectPlatform={(platform) => {
+                    setGameQuery({ ...gameQuery, platform });
+                    setBtn(false);
+                  }}
                 />
                 <SortGames
-                  onSortOrderSelect={(sortOrder) =>
-                    setGameQuery({ ...gameQuery, sortOrder })
-                  }
+                  onSortOrderSelect={(sortOrder) => {
+                    setGameQuery({ ...gameQuery, sortOrder });
+                    setBtn(false);
+                  }}
                   selectedOrder={gameQuery.sortOrder}
                 />
+                <Show above="md">
+                  <ClearFilter
+                    btnDisable={btnClear}
+                    onClear={() => {
+                      setGameQuery({} as GameQuery);
+                      setBtn(true);
+                    }}
+                  />
+                </Show>
               </HStack>
             </VStack>
             <Gamegrid gameQuery={gameQuery} />
