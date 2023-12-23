@@ -12,14 +12,14 @@ interface Prop {
 const GameCard = ({ game }: Prop) => {
   return (
     <Card
-      borderRadius="5px"
-      overflow="hidden"
+      borderRadius="10px"
+      overflow="hidden" //to make border radius visible
       width={{ base: "80%", md: "100%" }}
-      mx="auto"
-      // my="5px"
-      // height="fit-content"
+      mx="auto" //for single column the card shoud be in middle.
+      height="fit-content"
       transition="transform 0.3s"
       _hover={{ transform: "scale(1.10)" }}
+      // my="auto"
     >
       <Image src={getCroppedImage(game.background_image)} />
       <CardBody>

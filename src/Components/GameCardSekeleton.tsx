@@ -5,7 +5,7 @@ const GameCardSekeleton = () => {
     <Card
       borderRadius="5px"
       overflow="hidden"
-      width={["400px", "350px", "300px"]}
+      width={{ base: "200px", sm: "300px", md: "300px", lg: "270px" }}
       mx="auto"
       height="300px"
       gap="5px"
