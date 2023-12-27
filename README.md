@@ -1,1 +1,1 @@
-Rawg lite - a clone of rawg.io which is a video game datbase website.
+Rawg lite - a clone of rawg.io a video game datbase website.
